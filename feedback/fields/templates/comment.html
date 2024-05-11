@@ -1,0 +1,17 @@
+<div class="card mb-3">
+    <div class="card-header">
+        {{ comment.username }} - {{ comment.email }} - {{ comment.created_at }}
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ comment.text }}</p>
+        <form action="{% url 'add_comment' %}" method="GET">
+            <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
+            <button type="submit" class="btn btn-info">Answer</button>
+        </form>
+        <div class="mt-3">
+            {% for reply in comment.replies.all %}
+            {% include 'comment.html' with comment=reply %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

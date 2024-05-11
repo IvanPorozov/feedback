@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Read comments{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="get" class="mb-3">
+        <label for="sort_by">Sort by:</label>
+        <select name="sort_by" id="sort_by" class="form-select">
+            <option value="username" {% if request.GET.sort_by == 'username' %}selected{% endif %}>User Name</option>
+            <option value="email" {% if request.GET.sort_by == 'email' %}selected{% endif %}>E-mail</option>
+            <option value="created_at" {% if request.GET.sort_by == 'created_at' %}selected{% endif %}>Date Added</option>
+        </select>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="sort_direction" name="sort_direction" value="desc"
+                   {% if request.GET.sort_direction == 'desc' %}checked{% endif %}>
+            <label class="form-check-label" for="sort_direction">Reverse</label>
+        </div>
+        <button type="submit" class="btn btn-info">Sort</button>
+    </form>
+    <div class="container">
+        {% for record in page_obj %}
+        {% if not record.parent_comment_id %}
+            {% include 'comment.html' with comment=record %}
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1" class="btn btn-secondary">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-secondary">previous</a>
+            {% endif %}
+            <span class="current">
+                Page {{ page_obj.number }} from {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="btn btn-secondary">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-secondary">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock content %}
