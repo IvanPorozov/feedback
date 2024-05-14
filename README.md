@@ -21,11 +21,11 @@ How to install and run:
     ```
        source venv/bin/activate
     ```
-6. Install the requirements:
+7. Install the requirements:
     ```
        pip install -r requirements.txt
     ```
-7. Run the server:
+8. Run the server:
     ```
        python manage.py runserver
     ```
