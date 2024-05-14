@@ -13,7 +13,7 @@ How to install and run:
       python -m venv venv
    ```
 5. Activate your virtual environment:
-6. On Windows:
+   On Windows:
    ```
       .\venv\Scripts\activate.bat
    ```
@@ -21,11 +21,11 @@ How to install and run:
     ```
        source venv/bin/activate
     ```
-7. Install the requirements:
+6. Install the requirements:
     ```
        pip install -r requirements.txt
     ```
-8. Run the server:
+7. Run the server:
     ```
        python manage.py runserver
     ```
