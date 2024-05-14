@@ -13,7 +13,8 @@ How to install and run:
       python -m venv venv
    ```
 5. Activate your virtual environment:
-   On Windows:
+
+    On Windows:
    ```
       .\venv\Scripts\activate.bat
    ```
