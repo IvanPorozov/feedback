@@ -32,5 +32,6 @@ How to install and run:
     ```
     
 Database Schema:
-![image](https://github.com/IvanPorozov/feedback/assets/139009015/c5735177-a919-4c67-b024-20030e4991bc)
+![image](https://github.com/IvanPorozov/feedback/assets/139009015/3217f2cf-7bcb-43de-b20f-08de90c82246)
+
 
