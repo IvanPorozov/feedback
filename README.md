@@ -7,10 +7,25 @@ How to install and run:
    ```
      git clone <link>
    ```
-4. Navigate to the directory containing manage.py and requirements.txt.
-5. Create your virtual environment: python -m venv venv
-6. Activate your virtual environment:
-7. On Windows: venv\Scripts\activate
-8. On macOS/Linux: source venv/bin/activate
-9. Install the requirements: pip install -r requirements.txt
-10. Run the server: python manage.py runserver
+3. Navigate to the directory containing manage.py and requirements.txt.
+4. Create your virtual environment:
+   ```
+      python -m venv venv
+   ```
+5. Activate your virtual environment:
+6. On Windows:
+   ```
+      venv\Scripts\activate
+   ```
+7. On macOS/Linux:
+    ```
+       source venv/bin/activate
+    ```
+8. Install the requirements:
+    ```
+       pip install -r requirements.txt
+    ```
+9. Run the server:
+    ```
+       python manage.py runserver
+    ```
