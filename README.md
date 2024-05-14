@@ -9,6 +9,12 @@ How to install and run
     ```
 - Move to manage.py and reqerements.txt file
 - Create your envirirment
-- Install requeerments (pip install -r reqerements.txt)
-- run server (python manage.py rubserver)
+- Install requeerments 
+    ```
+        pip install -r reqerements.txt
+    ```
+- run server
+    ```
+        python manage.py rubserver
+    ```
   
