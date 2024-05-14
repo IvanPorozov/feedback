@@ -29,3 +29,6 @@ How to install and run:
     ```
        python manage.py runserver
     ```
+
+![image](https://github.com/IvanPorozov/feedback/assets/139009015/c5735177-a919-4c67-b024-20030e4991bc)
+
