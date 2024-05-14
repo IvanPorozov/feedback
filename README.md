@@ -15,16 +15,12 @@ How to install and run:
 5. Activate your virtual environment:
 6. On Windows:
    ```
-      venv\Scripts\activate
+      .\venv\Scripts\activate.bat
    ```
 7. On macOS/Linux:
     ```
        source venv/bin/activate
     ```
-    or
-   ```
-      .\venv\Scripts\activate.bat
-   ```
 9. Install the requirements:
     ```
        pip install -r requirements.txt
