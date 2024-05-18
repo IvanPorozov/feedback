@@ -18,7 +18,7 @@
         </div>
         <button type="submit" class="btn btn-info">Sort</button>
     </form>
-    <div class="container">
+    <div class="container" id="comments">
         {% for record in page_obj %}
         {% if not record.parent_comment_id %}
             {% include 'comment.html' with comment=record %}
@@ -45,3 +45,39 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+<script>
+    const chatSocket = new WebSocket(
+        'ws://' + window.location.host + '/ws/comments/'
+    );
+
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        const comment = data.comment;
+
+        const commentElement = document.createElement('div');
+        commentElement.className = 'comment';
+        commentElement.innerHTML = `
+            <p><strong>${comment.username}</strong>: ${comment.text}</p>
+            <p><small>${comment.created_at}</small></p>
+        `;
+
+        document.querySelector('#comments').appendChild(commentElement);
+    };
+
+    chatSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+
+    document.querySelector('#comment-form').onsubmit = function(e) {
+        e.preventDefault();
+        const commentInputDom = document.querySelector('#comment-input');
+        const comment = commentInputDom.value;
+        chatSocket.send(JSON.stringify({
+            'comment': comment
+        }));
+        commentInputDom.value = '';
+    };
+</script>
+{% endblock %}
