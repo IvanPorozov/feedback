@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from .forms import AddRecordForm
@@ -61,4 +62,3 @@ def read_comments(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'read_comments.html', {'page_obj': page_obj})
-

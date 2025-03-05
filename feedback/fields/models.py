@@ -1,4 +1,3 @@
-
 from django.db import models
 from django.core.validators import RegexValidator
 
@@ -14,7 +13,3 @@ class Record(models.Model):
 
     def __str__(self):
         return self.username
-
-    class Meta:
-        verbose_name = 'Record'
-        verbose_name_plural = 'Records'
