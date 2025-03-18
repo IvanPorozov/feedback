@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <p class="card-text">{{ comment.text }}</p>
-        <form action="{% url 'add_comment' %}" method="GET">
+        <form action="{% url 'fields:add_comment' %}" method="GET">
             <input type="hidden" name="parent_comment_id" value="{{ comment.id }}">
             <button type="submit" class="btn btn-info">Answer</button>
         </form>
